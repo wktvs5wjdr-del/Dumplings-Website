@@ -1,0 +1,1705 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Dumplings — cute digital art, chibi illustrations, and monochrome portrait commissions.">
+    <title>Dumplings — Digital Art & Commissions</title>
+
+    <style>
+        :root {
+            --cream: #fffaf0;
+            --paper: #fffdf8;
+            --pink: #f6cbd5;
+            --pink-dark: #d9829b;
+            --yellow: #f8e4a2;
+            --lavender: #e5dcf6;
+            --brown: #4b3835;
+            --muted: #806d68;
+            --line: #eadbd1;
+            --white: #fff;
+            --shadow: 0 12px 34px rgba(91, 59, 56, .09);
+            --radius: 22px;
+            --max: 1120px;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 88px;
+        }
+
+        body {
+            margin: 0;
+            background: var(--cream);
+            color: var(--brown);
+            font-family: Inter, ui-sans-serif, system-ui, -apple-system,
+                BlinkMacSystemFont, "Segoe UI", sans-serif;
+            line-height: 1.65;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        button,
+        input,
+        select,
+        textarea {
+            font: inherit;
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
+        }
+
+        .wrap {
+            width: min(var(--max), calc(100% - 40px));
+            margin: auto;
+        }
+
+        .nav {
+            position: sticky;
+            top: 0;
+            z-index: 10;
+            background: rgba(255, 250, 240, .92);
+            backdrop-filter: blur(14px);
+            border-bottom: 1px solid rgba(234, 219, 209, .8);
+        }
+
+        .nav-inner {
+            min-height: 76px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 24px;
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: 900;
+            font-size: 1.35rem;
+            letter-spacing: -.04em;
+        }
+
+        .brand-mark {
+            width: 39px;
+            height: 39px;
+            border-radius: 14px;
+            background: var(--pink);
+            display: grid;
+            place-items: center;
+            transform: rotate(-7deg);
+            font-size: 1.25rem;
+        }
+
+        .links {
+            display: flex;
+            gap: 18px;
+            align-items: center;
+            font-size: .92rem;
+            color: var(--muted);
+        }
+
+        .links a:hover {
+            color: var(--brown);
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            border: 0;
+            border-radius: 999px;
+            padding: 12px 20px;
+            background: var(--brown);
+            color: white;
+            font-weight: 750;
+            cursor: pointer;
+            transition: transform .2s, box-shadow .2s;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow);
+        }
+
+        .btn-light {
+            background: var(--white);
+            color: var(--brown);
+            border: 1px solid var(--line);
+        }
+
+        .btn-pink {
+            background: var(--pink);
+            color: var(--brown);
+        }
+
+        .hero {
+            padding: 72px 0 56px;
+            overflow: hidden;
+        }
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1.05fr .95fr;
+            align-items: center;
+            gap: 50px;
+        }
+
+        .eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: var(--yellow);
+            padding: 7px 13px;
+            border-radius: 999px;
+            font-size: .8rem;
+            font-weight: 800;
+            letter-spacing: .04em;
+            text-transform: uppercase;
+        }
+
+        h1,
+        h2,
+        h3,
+        p {
+            margin-top: 0;
+        }
+
+        h1 {
+            font-size: clamp(3rem, 6.5vw, 5.6rem);
+            line-height: .98;
+            letter-spacing: -.07em;
+            margin: 22px 0;
+        }
+
+        h1 em {
+            font-style: normal;
+            color: var(--pink-dark);
+        }
+
+        .lead {
+            font-size: 1.12rem;
+            max-width: 550px;
+            color: var(--muted);
+        }
+
+        .hero-actions {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+            margin-top: 28px;
+        }
+
+        .tiny-note {
+            font-size: .86rem;
+            color: var(--muted);
+            margin-top: 20px;
+        }
+
+        .hero-art {
+            position: relative;
+            min-height: 430px;
+            display: grid;
+            place-items: center;
+        }
+
+        .art-frame {
+            width: min(390px, 90%);
+            aspect-ratio: 4 / 5;
+            background: var(--lavender);
+            border: 10px solid white;
+            border-radius: 28px;
+            box-shadow: var(--shadow);
+            transform: rotate(3deg);
+            overflow: hidden;
+            position: relative;
+        }
+
+        .art-frame img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .sticker {
+            position: absolute;
+            display: grid;
+            place-items: center;
+            border-radius: 50%;
+            box-shadow: var(--shadow);
+            font-size: 1.7rem;
+        }
+
+        .sticker.one {
+            width: 76px;
+            height: 76px;
+            background: var(--yellow);
+            top: 25px;
+            right: 4px;
+            transform: rotate(12deg);
+        }
+
+        .sticker.two {
+            width: 66px;
+            height: 66px;
+            background: var(--pink);
+            bottom: 28px;
+            left: 5px;
+            transform: rotate(-12deg);
+        }
+
+        section {
+            padding: 76px 0;
+        }
+
+        .section-head {
+            display: flex;
+            justify-content: space-between;
+            align-items: end;
+            gap: 24px;
+            margin-bottom: 30px;
+        }
+
+        .kicker {
+            font-size: .78rem;
+            letter-spacing: .13em;
+            text-transform: uppercase;
+            color: var(--pink-dark);
+            font-weight: 850;
+        }
+
+        h2 {
+            font-size: clamp(2rem, 4vw, 3.15rem);
+            line-height: 1.08;
+            letter-spacing: -.055em;
+            margin: 8px 0 0;
+        }
+
+        .section-intro {
+            max-width: 470px;
+            color: var(--muted);
+            margin-bottom: 0;
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: .8fr 1.2fr;
+            gap: 36px;
+            align-items: center;
+        }
+
+        .about-card {
+            min-height: 310px;
+            border-radius: var(--radius);
+            background: var(--yellow);
+            display: grid;
+            place-items: center;
+            padding: 32px;
+            text-align: center;
+        }
+
+        .about-card .avatar-img {
+            width: 150px;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 22px;
+            margin: 0 auto 16px;
+        }
+
+        .about-card strong {
+            display: block;
+            font-size: 1.5rem;
+        }
+
+        .paper-card {
+            background: var(--paper);
+            border: 1px solid var(--line);
+            border-radius: var(--radius);
+            padding: 30px;
+            box-shadow: var(--shadow);
+        }
+
+        .chips {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+            margin-top: 18px;
+        }
+
+        .chip {
+            background: #f5e9e5;
+            border-radius: 999px;
+            padding: 7px 12px;
+            font-size: .83rem;
+            font-weight: 700;
+        }
+
+        .gallery-tools {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+            margin-bottom: 24px;
+        }
+
+        .filter {
+            border: 1px solid var(--line);
+            background: var(--paper);
+            color: var(--muted);
+            padding: 9px 15px;
+            border-radius: 999px;
+            cursor: pointer;
+        }
+
+        .filter.active,
+        .filter:hover {
+            background: var(--brown);
+            color: white;
+            border-color: var(--brown);
+        }
+
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 18px;
+        }
+
+        .art-card {
+            background: var(--paper);
+            border: 1px solid var(--line);
+            border-radius: 18px;
+            overflow: hidden;
+            cursor: pointer;
+            transition: transform .2s, box-shadow .2s;
+        }
+
+        .art-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow);
+        }
+
+        .art-image {
+            aspect-ratio: 4 / 5;
+            background: linear-gradient(140deg, #f6cbd5, #e5dcf6);
+            display: grid;
+            place-items: center;
+            overflow: hidden;
+        }
+
+        .art-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .art-meta {
+            padding: 15px 17px;
+        }
+
+        .art-meta strong {
+            display: block;
+        }
+
+        .art-meta span {
+            font-size: .86rem;
+            color: var(--muted);
+        }
+
+        .pricing {
+            background: #fff3ef;
+        }
+
+        .price-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+
+        .price-card {
+            background: var(--paper);
+            border: 1px solid var(--line);
+            border-radius: var(--radius);
+            padding: 28px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .price-card.featured {
+            border: 2px solid var(--pink-dark);
+        }
+
+        .price-art {
+            width: 100%;
+            height: 240px;
+            object-fit: cover;
+            object-position: center 30%;
+            border-radius: 15px;
+            margin-bottom: 18px;
+            background: var(--lavender);
+        }
+
+        .price-card h3 {
+            font-size: 1.45rem;
+            margin: 14px 0 4px;
+        }
+
+        .price {
+            font-size: 2.4rem;
+            font-weight: 900;
+            letter-spacing: -.06em;
+        }
+
+        .price small {
+            font-size: .95rem;
+            font-weight: 600;
+            letter-spacing: 0;
+            color: var(--muted);
+        }
+
+        .price-card ul {
+            padding-left: 20px;
+            color: var(--muted);
+        }
+
+        .price-card li {
+            margin: 8px 0;
+        }
+
+        .label {
+            display: inline-block;
+            border-radius: 999px;
+            padding: 5px 10px;
+            background: var(--lavender);
+            font-size: .75rem;
+            font-weight: 800;
+        }
+
+        .fineprint {
+            font-size: .88rem;
+            color: var(--muted);
+        }
+
+        .steps {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 16px;
+            margin-top: 24px;
+        }
+
+        .step {
+            padding: 22px;
+            background: var(--paper);
+            border: 1px solid var(--line);
+            border-radius: 18px;
+        }
+
+        .step-number {
+            width: 36px;
+            height: 36px;
+            border-radius: 12px;
+            background: var(--yellow);
+            display: grid;
+            place-items: center;
+            font-weight: 900;
+            margin-bottom: 12px;
+        }
+
+        .order-layout {
+            display: grid;
+            grid-template-columns: .75fr 1.25fr;
+            gap: 30px;
+            align-items: start;
+        }
+
+        .order-note {
+            background: var(--lavender);
+            border-radius: var(--radius);
+            padding: 28px;
+            position: sticky;
+            top: 100px;
+        }
+
+        form {
+            display: grid;
+            gap: 17px;
+        }
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+
+        label {
+            display: block;
+            font-size: .9rem;
+            font-weight: 750;
+            margin-bottom: 6px;
+        }
+
+        input,
+        select,
+        textarea {
+            width: 100%;
+            padding: 12px 13px;
+            border: 1px solid var(--line);
+            border-radius: 12px;
+            background: white;
+            color: var(--brown);
+            outline: none;
+        }
+
+        input:focus,
+        select:focus,
+        textarea:focus {
+            border-color: var(--pink-dark);
+            box-shadow: 0 0 0 3px rgba(217, 130, 155, .15);
+        }
+
+        textarea {
+            min-height: 110px;
+            resize: vertical;
+        }
+
+        .checkline {
+            display: flex;
+            gap: 10px;
+            align-items: flex-start;
+            font-size: .88rem;
+            color: var(--muted);
+        }
+
+        .checkline input {
+            width: auto;
+            margin-top: 5px;
+        }
+
+        .notice {
+            padding: 13px 15px;
+            border-radius: 12px;
+            background: #fff3cf;
+            font-size: .88rem;
+            color: #705c30;
+        }
+
+        .faq {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 14px;
+        }
+
+        details {
+            background: var(--paper);
+            border: 1px solid var(--line);
+            border-radius: 15px;
+            padding: 18px;
+        }
+
+        summary {
+            font-weight: 800;
+            cursor: pointer;
+        }
+
+        details p {
+            color: var(--muted);
+            margin: 12px 0 0;
+        }
+
+        .socials {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .social {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            border: 1px solid var(--line);
+            background: var(--paper);
+            padding: 10px 14px;
+            border-radius: 999px;
+            font-weight: 750;
+        }
+
+        footer {
+            padding: 34px 0;
+            border-top: 1px solid var(--line);
+            color: var(--muted);
+            font-size: .9rem;
+        }
+
+        .footer-inner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .modal {
+            position: fixed;
+            inset: 0;
+            z-index: 20;
+            background: rgba(40, 25, 25, .75);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            padding: 24px;
+        }
+
+        .modal.open {
+            display: flex;
+        }
+
+        .modal-box {
+            background: var(--paper);
+            padding: 20px;
+            border-radius: 20px;
+            max-width: 700px;
+            width: 100%;
+            max-height: 90vh;
+            overflow: auto;
+        }
+
+        .modal-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .close {
+            border: 0;
+            border-radius: 50%;
+            width: 38px;
+            height: 38px;
+            background: var(--pink);
+            cursor: pointer;
+            font-size: 1.2rem;
+        }
+
+        .modal-preview {
+            margin-top: 15px;
+            border-radius: 14px;
+            overflow: hidden;
+            background: var(--lavender);
+            min-height: 240px;
+            display: grid;
+            place-items: center;
+        }
+
+        .modal-preview img {
+            max-height: 65vh;
+            width: auto;
+            object-fit: contain;
+        }
+
+        @media (max-width: 850px) {
+            .links {
+                gap: 10px;
+            }
+
+            .links a:not(.btn) {
+                display: none;
+            }
+
+            .hero-grid,
+            .about-grid,
+            .order-layout {
+                grid-template-columns: 1fr;
+            }
+
+            .hero {
+                padding-top: 45px;
+            }
+
+            .hero-art {
+                min-height: 350px;
+            }
+
+            .order-note {
+                position: static;
+            }
+
+            .gallery {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 600px) {
+            .wrap {
+                width: min(100% - 28px, var(--max));
+            }
+
+            .nav-inner {
+                min-height: 66px;
+            }
+
+            .brand {
+                font-size: 1.15rem;
+            }
+
+            .links .btn {
+                padding: 10px 13px;
+                font-size: .83rem;
+            }
+
+            .hero-grid {
+                gap: 20px;
+            }
+
+            h1 {
+                font-size: 3.2rem;
+            }
+
+            .hero-art {
+                min-height: 320px;
+            }
+
+            .section-head {
+                display: block;
+            }
+
+            .section-intro {
+                margin-top: 14px;
+            }
+
+            .gallery,
+            .price-grid,
+            .steps,
+            .faq,
+            .form-grid {
+                grid-template-columns: 1fr;
+            }
+
+            section {
+                padding: 56px 0;
+            }
+
+            .paper-card,
+            .price-card {
+                padding: 22px;
+            }
+
+            .art-card {
+                border-radius: 14px;
+            }
+
+            .gallery {
+                gap: 12px;
+            }
+
+            .art-meta {
+                padding: 12px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header class="nav">
+        <div class="wrap nav-inner">
+            <a class="brand" href="#home" aria-label="Dumplings home">
+                <span class="brand-mark">✿</span>
+                dumplings<span style="color:var(--pink-dark)">.</span>
+            </a>
+
+            <nav class="links" aria-label="Main navigation">
+                <a href="#about">About</a>
+                <a href="#portfolio">Portfolio</a>
+                <a href="#commissions">Commissions</a>
+                <a href="#terms">Terms</a>
+                <a href="price-list.html">Price List ↗</a>
+                <a class="btn" href="#order">Commission me ↗</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+
+        <!-- HERO -->
+        <section class="hero" id="home">
+            <div class="wrap hero-grid">
+
+                <div>
+                    <span class="eyebrow">✦ independent digital artist ✦</span>
+
+                    <h1>Little art,<br><em>big feelings.</em></h1>
+
+                    <p class="lead">
+                        Hi, I'm Dumplings! A small artist making cute characters,
+                        chibis, and monochrome portraits. Have an idea in mind?
+                        Let's bring it to life together.
+                    </p>
+
+                    <div class="hero-actions">
+                        <a class="btn" href="#order">Let's make art ✿</a>
+                        <a class="btn btn-light" href="#portfolio">Explore my art</a>
+                        <a class="btn btn-pink" href="price-list.html">View Price List</a>
+                    </div>
+
+                    <p class="tiny-note">
+                        ♡ Open for digital art commissions · Worldwide clients welcome
+                    </p>
+                </div>
+
+                <div class="hero-art" aria-label="Featured artwork">
+                    <div class="art-frame">
+                        <img src="./images/artistprofile.jpg" alt="Featured chibi artwork">
+                    </div>
+                    <span class="sticker one">✦</span>
+                    <span class="sticker two">♡</span>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- ABOUT -->
+        <section id="about">
+            <div class="wrap">
+
+                <div class="section-head">
+                    <div>
+                        <div class="kicker">A little introduction</div>
+                        <h2>About the artist</h2>
+                    </div>
+
+                    <p class="section-intro">
+                        A tiny corner of the internet for my drawings,
+                        creative experiments, and the characters I love.
+                    </p>
+                </div>
+
+                <div class="about-grid">
+
+                    <div class="about-card">
+                        <div>
+                            <img
+                                class="avatar-img"
+                                src="./images/artistprofile.jpg"
+                                alt="Dumplings artist profile">
+
+                            <strong>Hi, I'm Dumplings!</strong>
+                            <span>Artist · Daydreamer · Snack enthusiast</span>
+                        </div>
+                    </div>
+
+                    <div class="paper-card">
+                        <p>
+                            I'm an independent digital artist who loves bringing
+                            characters and ideas to life through illustration.
+                            My little art journey is still growing, and I'm so
+                            happy you're here to be part of it.
+                        </p>
+
+                        <p>
+                            I currently offer <strong>Chibi</strong> and
+                            <strong>Monochrome Portrait</strong> commissions.
+                            Whether it's an original character, a sona, or a
+                            favorite character, I'd love to hear about your idea!
+                        </p>
+
+                        <p>
+                            <strong>My art vibe:</strong>
+                            expressive characters, cute details, and a little
+                            bit of silliness.
+                        </p>
+
+                        <div class="chips">
+                            <span class="chip">Digital illustration</span>
+                            <span class="chip">OCs & sonas</span>
+                            <span class="chip">Fan characters</span>
+                            <span class="chip">Made with love ♡</span>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- PORTFOLIO -->
+        <section id="portfolio">
+            <div class="wrap">
+
+                <div class="section-head">
+                    <div>
+                        <div class="kicker">Selected works</div>
+                        <h2>My little artwork corner</h2>
+                    </div>
+
+                    <p class="section-intro">
+                        A collection of drawings, characters, and personal
+                        projects. Tap an artwork to view it larger.
+                    </p>
+                </div>
+
+                <div class="gallery-tools" role="group" aria-label="Filter artworks">
+                    <button class="filter active" data-filter="all">All artwork</button>
+                    <button class="filter" data-filter="chibi">Chibi</button>
+                    <button class="filter" data-filter="portrait">Monochrome portraits</button>
+                    <button class="filter" data-filter="personal">Other projects</button>
+                </div>
+
+                <div class="gallery" id="gallery">
+
+                    <article
+                        class="art-card"
+                        data-category="chibi"
+                        tabindex="0"
+                        data-title="Chibi artwork 01"
+                        data-description="Chibi illustration by Dumplings.">
+
+                        <div class="art-image">
+                            <img src="./images/chibi1.JPG"
+                                alt="Chibi character illustration 1"
+                                loading="lazy">
+                        </div>
+
+                        <div class="art-meta">
+                            <strong>Chibi artwork 01</strong>
+                            <span>Chibi · Character illustration</span>
+                        </div>
+                    </article>
+
+                    <article
+                        class="art-card"
+                        data-category="chibi"
+                        tabindex="0"
+                        data-title="Chibi artwork 02"
+                        data-description="Another Chibi character illustration.">
+
+                        <div class="art-image">
+                            <img src="./images/chibi2.PNG"
+                                alt="Chibi character illustration 2"
+                                loading="lazy">
+                        </div>
+
+                        <div class="art-meta">
+                            <strong>Chibi artwork 02</strong>
+                            <span>Chibi · Character illustration</span>
+                        </div>
+                    </article>
+
+                    <article
+                        class="art-card"
+                        data-category="portrait"
+                        tabindex="0"
+                        data-title="Monochrome portrait 01"
+                        data-description="Monochrome portrait study.">
+
+                        <div class="art-image">
+                            <img src="./images/portrait1.PNG"
+                                alt="Monochrome digital portrait 1"
+                                loading="lazy">
+                        </div>
+
+                        <div class="art-meta">
+                            <strong>Monochrome portrait 01</strong>
+                            <span>Portrait · Black and white</span>
+                        </div>
+                    </article>
+
+                    <article
+                        class="art-card"
+                        data-category="portrait"
+                        tabindex="0"
+                        data-title="Monochrome portrait 02"
+                        data-description="Monochrome portrait artwork.">
+
+                        <div class="art-image">
+                            <img src="images/portrait2.PNG"
+                                alt="Monochrome digital portrait 2"
+                                loading="lazy">
+                        </div>
+
+                        <div class="art-meta">
+                            <strong>Monochrome portrait 02</strong>
+                            <span>Portrait · Black and white</span>
+                        </div>
+                    </article>
+
+                    <article
+                        class="art-card"
+                        data-category="personal"
+                        tabindex="0"
+                        data-title="Personal project 01"
+                        data-description="Personal digital art project.">
+
+                        <div class="art-image">
+                            <img src="images/otherproject2.PNG"
+                                alt="Personal digital art project 1"
+                                loading="lazy">
+                        </div>
+
+                        <div class="art-meta">
+                            <strong>Personal project 01</strong>
+                            <span>Personal work</span>
+                        </div>
+                    </article>
+
+                    <article
+                        class="art-card"
+                        data-category="personal"
+                        tabindex="0"
+                        data-title="Personal project 02"
+                        data-description="Personal digital art project.">
+
+                        <div class="art-image">
+                            <img src="images/otherproject1.jpg"
+                                alt="Personal digital art project 2"
+                                loading="lazy">
+                        </div>
+
+                        <div class="art-meta">
+                            <strong>Personal project 02</strong>
+                            <span>Personal work</span>
+                        </div>
+                    </article>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- COMMISSIONS & PRICING -->
+        <section class="pricing" id="commissions">
+            <div class="wrap">
+
+                <div class="section-head">
+                    <div>
+                        <div class="kicker">Made just for you</div>
+                        <h2>Commissions & pricing</h2>
+                    </div>
+
+                    <p class="section-intro">
+                        Have a character you want me to draw? Choose a commission
+                        type below and send me your idea.
+                    </p>
+                </div>
+
+                <div class="price-grid">
+
+                    <article class="price-card">
+                        <span class="label">Cute & expressive</span>
+                        <h3>Chibi</h3>
+
+                        <div class="price">$5–25 <small>USD / base</small></div>
+
+                        <p class="fineprint">
+                            Final pricing depends on character complexity
+                            and requested details.
+                        </p>
+
+                        <ul>
+                            <li>Chibi-style character illustration</li>
+                            <li>Additional character: +50% of the applicable base price per character</li>
+                            <li>Personal use included</li>
+                        </ul>
+
+                        <a class="btn btn-light"
+                            href="#order"
+                            data-select="Chibi">
+                            Choose Chibi ↗
+                        </a>
+                    </article>
+
+                    <article class="price-card featured">
+                        <span class="label">Classic portrait</span>
+                        <h3>Monochrome Portrait</h3>
+
+                        <div class="price">$60 <small>USD / base</small></div>
+
+                        <ul>
+                            <li>Digital black-and-white portrait</li>
+                            <li>Additional character: +60% of the applicable base price per character</li>
+                            <li>Optional coloring: +$30 USD</li>
+                            <li>Coloring requires full rendering</li>
+                        </ul>
+
+                        <a class="btn btn-light"
+                            href="#order"
+                            data-select="Monochrome Portrait">
+                            Choose Portrait ↗
+                        </a>
+                    </article>
+
+                </div>
+
+                <p style="margin-top:20px">
+                    <a class="btn btn-pink" href="price-list.html">
+                        Open illustrated Price List ↗
+                    </a>
+                </p>
+
+                <div class="notice" style="margin-top:20px">
+                    Prices are starting estimates. I will confirm the final
+                    quote, availability, deadline, and payment details with
+                    you before accepting the commission.
+                </div>
+
+                <div class="steps">
+
+                    <div class="step">
+                        <div class="step-number">1</div>
+                        <strong>Send your request</strong>
+                        <p class="fineprint">
+                            Tell me about your character, references, and
+                            what you have in mind.
+                        </p>
+                    </div>
+
+                    <div class="step">
+                        <div class="step-number">2</div>
+                        <strong>Confirm the details</strong>
+                        <p class="fineprint">
+                            I'll review your request and confirm the quote,
+                            timeline, and payment arrangements.
+                        </p>
+                    </div>
+
+                    <div class="step">
+                        <div class="step-number">3</div>
+                        <strong>Let's make art!</strong>
+                        <p class="fineprint">
+                            Once everything is agreed, I'll begin and share
+                            progress according to our arrangement.
+                        </p>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- ORDER FORM -->
+        <section id="order">
+            <div class="wrap">
+
+                <div class="section-head">
+                    <div>
+                        <div class="kicker">Let's work together</div>
+                        <h2>Commission request</h2>
+                    </div>
+
+                    <p class="section-intro">
+                        Fill out as much as you can. Submitting a request
+                        doesn't automatically mean the commission is accepted.
+                    </p>
+                </div>
+
+                <div class="order-layout">
+
+                    <aside class="order-note">
+                        <h3>Before you order ♡</h3>
+
+                        <p>
+                            Please prepare clear character references and
+                            a short description of your idea. More details
+                            help me understand what you want.
+                        </p>
+
+                        <p>
+                            <strong>Prefer to chat first?</strong><br>
+                            Send me a DM on Instagram or TikTok.
+                        </p>
+
+                        <div class="socials">
+                            <a class="social"
+                                href="https://www.instagram.com/madeby.dumplings/"
+                                target="_blank"
+                                rel="noopener">
+                                ◎ Instagram
+                            </a>
+
+                            <a class="social"
+                                href="https://www.tiktok.com/@itz_dumplingsn?_r=1&_t=ZS-9AxA7WotXQS"
+                                target="_blank"
+                                rel="noopener">
+                                ♪ TikTok
+                            </a>
+                        </div>
+
+                        <p class="fineprint" style="margin-top:18px">
+                            This starter form opens your email app to prepare
+                            a request. It does not upload attachments or store
+                            orders online.
+                        </p>
+                    </aside>
+
+                    <div class="paper-card">
+                        <form id="commission-form">
+
+                            <div class="form-grid">
+                                <div>
+                                    <label for="client-name">Name / preferred name *</label>
+                                    <input id="client-name" name="name"
+                                        required
+                                        placeholder="What should I call you?">
+                                </div>
+
+                                <div>
+                                    <label for="client-email">Email address *</label>
+                                    <input id="client-email" name="email"
+                                        type="email"
+                                        required
+                                        placeholder="you@example.com">
+                                </div>
+                            </div>
+
+                            <div class="form-grid">
+                                <div>
+                                    <label for="social">Social username (optional)</label>
+                                    <input id="social" name="social"
+                                        placeholder="@username">
+                                </div>
+
+                                <div>
+                                    <label for="contact">Preferred contact method</label>
+                                    <select id="contact" name="contact">
+                                        <option>Email</option>
+                                        <option>Instagram DM</option>
+                                        <option>TikTok DM</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="form-grid">
+                                <div>
+                                    <label for="type">Commission type *</label>
+                                    <select id="type" name="type" required>
+                                        <option value="">Choose a type</option>
+                                        <option>Chibi</option>
+                                        <option>Monochrome Portrait</option>
+                                        <option>Other types</option>
+                                    </select>
+                                </div>
+
+                                <div>
+                                    <label for="characters">Number of characters *</label>
+                                    <select id="characters" name="characters" required>
+                                        <option>1</option>
+                                        <option>2</option>
+                                        <option>3</option>
+                                        <option>4+</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div id="coloring-wrap">
+                                <label for="coloring">
+                                    Coloring option (Monochrome Portrait only)
+                                </label>
+
+                                <select id="coloring" name="coloring">
+                                    <option>No coloring</option>
+                                    <option>Coloring + full rendering (+$30)</option>
+                                </select>
+                            </div>
+
+                            <div>
+                                <label for="description">Describe your commission *</label>
+                                <textarea id="description"
+                                    name="description"
+                                    required
+                                    placeholder="Character details, pose, expression, mood, background, and anything else I should know..."></textarea>
+                            </div>
+
+                            <div>
+                                <label for="references">Reference links (optional)</label>
+                                <input id="references"
+                                    name="references"
+                                    type="url"
+                                    placeholder="Link to a folder or reference images">
+                            </div>
+
+                            <div class="form-grid">
+                                <div>
+                                    <label for="budget">Estimated budget (USD)</label>
+                                    <input id="budget"
+                                        name="budget"
+                                        placeholder="e.g. $25–40">
+                                </div>
+
+                                <div>
+                                    <label for="deadline">Desired deadline (optional)</label>
+                                    <input id="deadline"
+                                        name="deadline"
+                                        type="date">
+                                </div>
+                            </div>
+
+                            <div>
+                                <label for="extra">Additional notes (optional)</label>
+                                <textarea id="extra"
+                                    name="extra"
+                                    placeholder="Anything else you'd like to mention?"></textarea>
+                            </div>
+
+                            <label class="checkline">
+                                <input type="checkbox" required>
+                                <span>I have read and agree to the Terms of Service. *</span>
+                            </label>
+
+                            <label class="checkline">
+                                <input type="checkbox" required>
+                                <span>
+                                    I understand that this is a request only,
+                                    and the artist must confirm availability
+                                    and the final price. *
+                                </span>
+                            </label>
+
+                            <button class="btn" type="submit">
+                                Prepare commission request ↗
+                            </button>
+
+                            <p class="fineprint">
+                                Required fields are marked with *. Please do
+                                not include sensitive personal information.
+                            </p>
+
+                            <div id="form-message" class="notice" hidden></div>
+
+                        </form>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- TERMS -->
+        <section id="terms">
+            <div class="wrap">
+
+                <div class="section-head">
+                    <div>
+                        <div class="kicker">A few important things</div>
+                        <h2>Terms of Service</h2>
+                    </div>
+
+                    <p class="section-intro">
+                        Please read these guidelines before submitting a
+                        request.
+                    </p>
+                </div>
+
+                <div class="faq">
+
+                    <details open>
+                        <summary>Revisions</summary>
+                        <p>
+                            1–2 minor revisions are available during the sketch
+                            stage. Major changes or changes requested after
+                            approval may require an additional fee, if agreed
+                            in advance.
+                        </p>
+                    </details>
+
+                    <details>
+                        <summary>Refund policy</summary>
+                        <p>
+                            Full refunds are available only if work has not
+                            started. No refunds once the sketch is approved.
+                            If the artist cannot finish for personal reasons,
+                            a partial refund will be discussed.
+                        </p>
+                    </details>
+
+                    <details>
+                        <summary>Usage rights</summary>
+                        <p>
+                            Commissioned artwork is for personal use only
+                            unless commercial rights are purchased. You may
+                            post the artwork with proper credit. Do not resell,
+                            claim authorship, or use the artwork commercially
+                            without permission. Do not use it for AI training.
+                        </p>
+                    </details>
+
+                    <details>
+                        <summary>Payment & workflow</summary>
+                        <p>
+                            Payment method, deposit amount, and payment
+                            schedule will be confirmed before work begins.
+                            A request is not accepted until the artist confirms it.
+                        </p>
+                    </details>
+
+                    <details>
+                        <summary>Turnaround & deadlines</summary>
+                        <p>
+                            Turnaround time depends on complexity and current
+                            workload. A deadline is not confirmed until both
+                            parties agree to it.
+                        </p>
+                    </details>
+
+                    <details>
+                        <summary>File delivery</summary>
+                        <p>
+                            Final files are delivered digitally. PNG or JPEG
+                            delivery can be agreed upon; editable source files
+                            may require an additional fee.
+                        </p>
+                    </details>
+
+                    <details>
+                        <summary>Artist rights</summary>
+                        <p>
+                            The artist may decline a commission before work
+                            begins and may post commissioned artwork on social
+                            media, unless otherwise agreed in writing.
+                        </p>
+                    </details>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- CONTACT -->
+        <section id="contact" style="padding-top:15px">
+            <div class="wrap paper-card"
+                style="display:flex;align-items:center;justify-content:space-between;gap:28px;flex-wrap:wrap">
+
+                <div>
+                    <div class="kicker">Find me around the internet</div>
+                    <h2 style="font-size:2rem">Let's be mutuals ♡</h2>
+                    <p class="fineprint">
+                        Follow my art journey or send me a message if you have questions.
+                    </p>
+                </div>
+
+                <div class="socials">
+                    <a class="social"
+                        href="https://www.instagram.com/madeby.dumplings/"
+                        target="_blank"
+                        rel="noopener">
+                        ◎ @madeby.dumplings
+                    </a>
+
+                    <a class="social"
+                        href="https://www.tiktok.com/@itz_dumplingsn?_r=1&_t=ZS-9AxA7WotXQS"
+                        target="_blank"
+                        rel="noopener">
+                        ♪ TikTok
+                    </a>
+                </div>
+
+            </div>
+        </section>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="wrap footer-inner">
+            <a class="brand" href="#home">
+                <span class="brand-mark">✿</span> dumplings.
+            </a>
+
+            <span>Made with ♡ and a little bit of chaos.</span>
+
+            <span>© <span id="year"></span> Dumplings</span>
+        </div>
+    </footer>
+
+    <!-- ARTWORK PREVIEW MODAL -->
+    <div class="modal"
+        id="art-modal"
+        role="dialog"
+        aria-modal="true"
+        aria-label="Artwork preview">
+
+        <div class="modal-box">
+
+            <div class="modal-top">
+                <div>
+                    <strong id="modal-title">Artwork title</strong>
+                    <div class="fineprint" id="modal-description"></div>
+                </div>
+
+                <button class="close" id="modal-close" aria-label="Close preview">
+                    ×
+                </button>
+            </div>
+
+            <div class="modal-preview" id="modal-preview">
+                <div style="font-size:4rem">✿</div>
+            </div>
+
+        </div>
+    </div>
+
+    <script>
+        // Current year
+        document.getElementById('year').textContent =
+            new Date().getFullYear();
+
+        // Gallery category filters
+        const filterButtons = document.querySelectorAll('.filter');
+        const artCards = document.querySelectorAll('.art-card');
+
+        filterButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                filterButtons.forEach(b => b.classList.remove('active'));
+                button.classList.add('active');
+
+                const filter = button.dataset.filter;
+
+                artCards.forEach(card => {
+                    card.style.display =
+                        filter === 'all' ||
+                        card.dataset.category === filter
+                            ? ''
+                            : 'none';
+                });
+            });
+        });
+
+        // Artwork lightbox
+        const modal = document.getElementById('art-modal');
+        const modalPreview = document.getElementById('modal-preview');
+
+        function openArtwork(card) {
+            document.getElementById('modal-title').textContent =
+                card.dataset.title || 'Artwork';
+
+            document.getElementById('modal-description').textContent =
+                card.dataset.description || '';
+
+            const img = card.querySelector('img');
+
+            modalPreview.innerHTML = '';
+
+            if (img) {
+                const copy = img.cloneNode();
+                copy.alt = img.alt || 'Artwork preview';
+                modalPreview.appendChild(copy);
+            } else {
+                modalPreview.textContent = '✿';
+            }
+
+            modal.classList.add('open');
+        }
+
+        artCards.forEach(card => {
+            card.addEventListener('click', () => openArtwork(card));
+
+            card.addEventListener('keydown', event => {
+                if (event.key === 'Enter' || event.key === ' ') {
+                    event.preventDefault();
+                    openArtwork(card);
+                }
+            });
+        });
+
+        document.getElementById('modal-close')
+            .addEventListener('click', () => {
+                modal.classList.remove('open');
+            });
+
+        modal.addEventListener('click', event => {
+            if (event.target === modal) {
+                modal.classList.remove('open');
+            }
+        });
+
+        document.addEventListener('keydown', event => {
+            if (event.key === 'Escape') {
+                modal.classList.remove('open');
+            }
+        });
+
+        // Preselect commission type from pricing cards
+        document.querySelectorAll('[data-select]').forEach(link => {
+            link.addEventListener('click', () => {
+                document.getElementById('type').value =
+                    link.dataset.select;
+
+                updateColoring();
+            });
+        });
+
+        // Coloring option
+        const typeSelect = document.getElementById('type');
+        const coloring = document.getElementById('coloring');
+        const coloringWrap = document.getElementById('coloring-wrap');
+
+        function updateColoring() {
+            const isPortrait =
+                typeSelect.value === 'Monochrome Portrait';
+
+            coloringWrap.style.opacity = isPortrait ? '1' : '.55';
+            coloring.disabled = !isPortrait;
+
+            if (!isPortrait) {
+                coloring.value = 'No coloring';
+            }
+        }
+
+        typeSelect.addEventListener('change', updateColoring);
+        updateColoring();
+
+        // Commission request email
+        document.getElementById('commission-form')
+            .addEventListener('submit', event => {
+                event.preventDefault();
+
+                const form = event.currentTarget;
+
+                if (!form.reportValidity()) {
+                    return;
+                }
+
+                const data = new FormData(form);
+
+                const subject = encodeURIComponent(
+                    'Commission Request — ' + data.get('type')
+                );
+
+                const body = encodeURIComponent(
+`Name: ${data.get('name')}
+Email: ${data.get('email')}
+Social username: ${data.get('social') || 'Not provided'}
+Preferred contact: ${data.get('contact')}
+Commission type: ${data.get('type')}
+Number of characters: ${data.get('characters')}
+Coloring: ${data.get('coloring') || 'Not applicable'}
+
+Description:
+${data.get('description')}
+
+Reference links: ${data.get('references') || 'Not provided'}
+Budget: ${data.get('budget') || 'Not provided'}
+Desired deadline: ${data.get('deadline') || 'Not provided'}
+
+Additional notes:
+${data.get('extra') || 'None'}
+
+The client has confirmed agreement to the Terms of Service and understands that this is a request only.`
+                );
+
+                const message = document.getElementById('form-message');
+
+                message.hidden = false;
+                message.textContent =
+                    'Your email app should open with the request details prepared. Review and send the email to the artist. This form does not automatically transmit or store the request.';
+
+                window.location.href =
+                    'mailto:itzdumplings0705@gmail.com?subject=' +
+                    subject + '&body=' + body;
+            });
+    </script>
+
+</body>
+</html>
